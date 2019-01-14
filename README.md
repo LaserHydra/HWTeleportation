@@ -1,4 +1,4 @@
-**HW Teleportation** implements different teleportation features such as warps & homes.
+**HW Teleportation** implements different teleportation features such as warps & homes.  
   
 ## Permissions
 
@@ -48,7 +48,7 @@ You can set up a cooldown in the configuration file so players can only teleport
 
 ### Home Count Limit Permissions
 
-In the Home Count Limit permissions section you can add, remove, or edit rows.
+In the Home Count Limit permissions section you can add, remove, or edit rows.  
 Players with the permission on the left-hand side will receive the home count limit set on the right-hand side.
 
 ### Default Configuration
