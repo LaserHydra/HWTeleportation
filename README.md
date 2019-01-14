@@ -82,6 +82,7 @@ Players with the permission on the left-hand side will receive the home count li
 ```
 
 ## Localization
+
 ```json
 {
   "No Permission": "You don't have permission to use this command.",
