@@ -1,4 +1,4 @@
-﻿*HW Teleportation* implements different teleportation features such as warps & homes.
+**HW Teleportation** implements different teleportation features such as warps & homes.
   
 ## Permissions
 
