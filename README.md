@@ -7,7 +7,7 @@
 - `hwteleportation.home` -- for home commands (/home, /sethome, /removehome & /homes)  
 - `hwteleportation.warp` -- for warp commands (/warp & /warps)  
 
-## Commands
+## Chat Commands
 
 ### Teleportation
 
