@@ -13,7 +13,7 @@ namespace Oxide.Plugins
     using WarpData = Dictionary<string, Vector3>;
     using LastUsageDictionary = Dictionary<ulong, DateTime>;
 
-    [Info("HW Teleportation", "LaserHydra", "1.6.0")]
+    [Info("HW Teleportation", "LaserHydra", "1.6.1")]
     [Description("Implements different teleportation features such as warps & homes")]
     internal class HWTeleportation : HurtworldPlugin
     {
@@ -146,7 +146,7 @@ namespace Oxide.Plugins
 
                 default:
 
-                    SendChatMessage(player, "/tp <target>\n/tp <player> <target>\n/tp <x> <y> <z>");
+                    SendChatMessage(player, "/tp {target}\n/tp {player} {target}\n/tp {x} {y} {z}");
 
                     break;
             }
@@ -163,7 +163,7 @@ namespace Oxide.Plugins
 
             if (args.Length != 1)
             {
-                SendChatMessage(player, "Syntax: /tphere <player>");
+                SendChatMessage(player, "Syntax: /tphere {player}");
                 return;
             }
 
@@ -204,7 +204,7 @@ namespace Oxide.Plugins
 
             if (args.Length != 1)
             {
-                SendChatMessage(player, "Syntax: /removehome <home>");
+                SendChatMessage(player, "Syntax: /removehome {home}");
                 return;
             }
 
@@ -240,7 +240,7 @@ namespace Oxide.Plugins
 
             if (args.Length != 1)
             {
-                SendChatMessage(player, "Syntax: /sethome <home>");
+                SendChatMessage(player, "Syntax: /sethome {home}");
                 return;
             }
 
@@ -276,7 +276,7 @@ namespace Oxide.Plugins
 
             if (args.Length != 1)
             {
-                SendChatMessage(player, "Syntax: /home <home>");
+                SendChatMessage(player, "Syntax: /home {home}");
                 return;
             }
 
@@ -409,7 +409,7 @@ namespace Oxide.Plugins
 
             if (args.Length != 1)
             {
-                SendChatMessage(player, "Syntax: /removewarp <warp>");
+                SendChatMessage(player, "Syntax: /removewarp {warp}");
                 return;
             }
 
@@ -436,7 +436,7 @@ namespace Oxide.Plugins
 
             if (args.Length != 1)
             {
-                SendChatMessage(player, "Syntax: /setwarp <warp>");
+                SendChatMessage(player, "Syntax: /setwarp {warp}");
                 return;
             }
 
@@ -466,7 +466,7 @@ namespace Oxide.Plugins
 
             if (args.Length != 1)
             {
-                SendChatMessage(player, "Syntax: /warp <warp>");
+                SendChatMessage(player, "Syntax: /warp {warp}");
                 return;
             }
 
@@ -565,7 +565,7 @@ namespace Oxide.Plugins
 
             if (args.Length != 1)
             {
-                SendChatMessage(player, "Syntax: /tpr <player>");
+                SendChatMessage(player, "Syntax: /tpr {player}");
                 return;
             }
 
@@ -809,11 +809,14 @@ namespace Oxide.Plugins
         }
 
         private bool HasPerm(PlayerSession session, string perm) => 
-            permission.UserHasPermission(session.SteamId.ToString(), perm);
+            permission.UserHasPermission(session.SteamId.ToString(), $"{Name}.{perm}");
 
         private string GetMessage(string key, PlayerSession session) => lang.GetMessage(key, this, session.SteamId.ToString());
 
-        private void SendChatMessage(PlayerSession player, string msg) => hurt.SendChatMessage(player, msg);
+        private void SendChatMessage(PlayerSession player, string message)
+        {
+            hurt.SendChatMessage(player, null, message);
+        }
 
         #endregion
 
